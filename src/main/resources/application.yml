@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+spring:
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1;MODE=MySQL
+    initialize: true
+    username: sa # database 用戶名
+    password:  # database 密碼    
+
+  sql:
+    init:
+      encoding: UTF-8
+      mode|: always      
+      
+  jpa:
+    show-sql: true  
+    defer-datasource-initialization: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+
+logging:
+    name: C:/Users/User/Documents/SpringWorkSpace/JpaAuthServer/logsauth.log
+    
+    
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: 1048c08c3a502d78feex2b59ce243342 #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Author  #JWT负载中拿到开头    
+    
+    
+springfox:
+  documentation:
+    enabled: true
+
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /swagger-ui/
+      - /swagger-resources/**
+      - /**/v2/api-docs
+      - /*.html
+      - /*.js
+      - /css/*.css
+      - /*.png    
+
