@@ -21,7 +21,6 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * customer-security
  * 自定義配置，用於取得使用者訊息及動態權限
- * Created by macro on 2022/5/20.
  */
 @Configuration
 @Slf4j
